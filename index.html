@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello Romush</title>
     <style>
-        /* Resets and centering the container */
         body, html {
             height: 100%;
             margin: 0;
@@ -14,57 +13,81 @@
             justify-content: center;
             align-items: center;
             background-color: #f8f9fa;
-            overflow: hidden; /* Prevents scrollbars if the cursor bounces */
+            font-family: 'Aptos', 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
-        .container {
-            text-align: center;
+        /* Container to stack text and button vertically */
+        .content-wrapper {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
+            gap: 40px; /* Space between text and button */
+            text-align: center;
         }
 
         h1 {
-            font-family: 'Aptos', 'Segoe UI', system-ui, -apple-system, sans-serif;
-            /* Dynamic Font Size: 10% of the smaller screen dimension */
-            font-size: 10vmin; 
+            font-size: 8vmin; 
             color: #1a1a1a;
             margin: 0;
-            white-space: nowrap;
             display: flex;
             align-items: center;
+            white-space: nowrap;
         }
 
         /* The Typewriter Cursor */
         h1::after {
             content: "";
             display: inline-block;
-            /* Responsive cursor width and height */
-            width: 0.15em; 
+            width: 0.12em; 
             height: 1em;
-            background-color: #1a1a1a; /* A nice blue accent */
+            background-color: #007bff;
             margin-left: 0.1em;
             animation: blink 1s step-end infinite;
         }
 
-        /* Smooth Blinking Animation */
         @keyframes blink {
             from, to { opacity: 1; }
             50% { opacity: 0; }
         }
 
-        /* Mobile specific adjustment for very small screens */
+        /* Button Styling */
+        .water-btn {
+            display: inline-block;
+            padding: 15px 35px;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: white;
+            background-color: #007bff;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        }
+
+        .water-btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+        }
+
+        .water-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Responsive adjustments for phone */
         @media (max-width: 480px) {
-            h1 {
-                font-size: 12vw; /* Use slightly more width on narrow phones */
-            }
+            h1 { font-size: 12vw; }
+            .water-btn { font-size: 1.2rem; padding: 12px 28px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="content-wrapper">
         <h1>hello Romush</h1>
+        <a href="https://ai.studio/apps/af847a6f-526b-4777-971b-348e14d9b1ca" class="water-btn">
+            Drink Water
+        </a>
     </div>
 
 </body>
