@@ -5,20 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello Romush</title>
     <style>
+        /* Resets and centering the container */
         body, html {
             height: 100%;
             margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #f0f0f0;
+            background-color: #f8f9fa;
+            overflow: hidden; /* Prevents scrollbars if the cursor bounces */
+        }
+
+        .container {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         h1 {
-            font-family: 'Aptos', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 100pt;
-            color: #333;
+            font-family: 'Aptos', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            /* Dynamic Font Size: 10% of the smaller screen dimension */
+            font-size: 10vmin; 
+            color: #1a1a1a;
             margin: 0;
+            white-space: nowrap;
             display: flex;
             align-items: center;
         }
@@ -27,23 +39,33 @@
         h1::after {
             content: "";
             display: inline-block;
-            width: 12px; /* Thickness of the cursor */
-            height: 110pt; /* Slightly taller than font for aesthetics */
-            background-color: #333;
-            margin-left: 10px;
-            animation: blink 0.8s step-end infinite;
+            /* Responsive cursor width and height */
+            width: 0.15em; 
+            height: 1em;
+            background-color: #007bff; /* A nice blue accent */
+            margin-left: 0.1em;
+            animation: blink 1s step-end infinite;
         }
 
-        /* Blinking Animation */
+        /* Smooth Blinking Animation */
         @keyframes blink {
-            from, to { background-color: transparent; }
-            50% { background-color: #333; }
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Mobile specific adjustment for very small screens */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 12vw; /* Use slightly more width on narrow phones */
+            }
         }
     </style>
 </head>
 <body>
 
-    <h1>hello Romush!</h1>
+    <div class="container">
+        <h1>hello Romush</h1>
+    </div>
 
 </body>
 </html>
